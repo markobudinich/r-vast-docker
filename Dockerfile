@@ -1,4 +1,11 @@
 FROM rocker/verse:latest
+RUN apt update 
+RUN apt install -y aptitude
+RUN aptitude install -y gdal-bin
+RUN aptitude install -y libgdal-dev
+RUN aptitude install -y libproj-dev
+RUN apt install -y libudunits2-dev
+
 # Install TMB from CRAN
 RUN R -e 'install.packages("TMB")'
 # Install INLA using currently recommended method
